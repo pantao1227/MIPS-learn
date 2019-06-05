@@ -1,5 +1,5 @@
 main:
-	addi $a0, $zero, 6
+	addi $a0, $zero, 3
 fact:
 	#作为被调用者（callee），负责保护 $ra 和 $s<>，作为调用者（caller），负责保护参数寄存器 $a<>
 	addi	$sp, $sp, -8
