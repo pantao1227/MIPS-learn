@@ -1,7 +1,7 @@
 main:
 	addi $a0, $zero, 3
 fact:
-	#作为被调用者（callee），负责保护 $ra 和 $s<>，作为调用者（caller），负责保护参数寄存器 $a<>
+	# As callee, to save $ra and $s<>, as caller, to save parameter register $a<>
 	addi	$sp, $sp, -8
 	sw	$ra, 4($sp)
 	sw	$a0, 0($sp)
@@ -10,7 +10,7 @@ fact:
 	beq	$t0, $zero, L1	# if $t0 == $zero then L1 ("L" for a leaf procedure)
 
 	addi	$v0, $zero, 1
-	#出栈，没有修改内容，所以仅仅移动指针
+	# pop 2 items, nothing changed, so just adjust stack pointer
 	addi	$sp, $sp, 8
 	jr	$ra
 
